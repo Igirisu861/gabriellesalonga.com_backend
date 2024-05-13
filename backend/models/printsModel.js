@@ -9,10 +9,10 @@ const printSchema = mongoose.Schema({
         type: String,
         required:[true, 'Please insert the price']
     },
-    size:{
+    sizes:[{
         type: String,
-        required:[true, 'Please set the size']
-    }
+        required:[true, 'Please insert the size']
+    }]
 });
 
 module.exports = mongoose.model('Print',printSchema);

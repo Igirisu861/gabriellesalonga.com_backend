@@ -8,14 +8,14 @@ const getPrints = asyncHandler(async(req,res)=>{
 
 const crearPrints = asyncHandler(async(req,res) =>{
     const{title,price,size} = req.body;
-    if(!title || !price || !size){
+    if(!title || !price ||!size){
         res.status(400);
         throw new Error('Please insert all the data');
     }
     const print = await Print.create({
         title,
         price,
-        size
+        sizes:[size]
     })
     res.status(201).json(print);
 })
@@ -44,9 +44,24 @@ const deletePrints =asyncHandler(async (req,res) => {
     res.status(200).json({id:req.params.id});
 })
 
+const addSizes = asyncHandler(async (req,res) => {
+    const{size} = req.body;
+    const print= await Print.findById(req.params.id);
+
+    if(!print){
+        res.status(404);
+        throw new Error('The print does not exist');
+    }
+
+    print.sizes.push(size);
+    await print.save();
+    res.status(200).json(print);
+})
+
 module.exports={
     getPrints,
     crearPrints,
     updatePrints,
-    deletePrints
+    deletePrints,
+    addSizes
 }
