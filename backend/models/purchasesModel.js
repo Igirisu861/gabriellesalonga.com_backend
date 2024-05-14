@@ -6,8 +6,8 @@ const purchaseModel = mongoose.Schema({
         ref: 'Client'
     },
     articles:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Print'
+        type: String,
+        required:[true, 'Please insert at least one article']
     }]
 },
 {
