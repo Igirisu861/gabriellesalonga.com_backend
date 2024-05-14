@@ -3,6 +3,7 @@ const colors = require('colors');
 const connectDB = require('./config/db');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const {errorHandler} = require('./middleware/errorMiddleware');
 
 app.use(cors());
