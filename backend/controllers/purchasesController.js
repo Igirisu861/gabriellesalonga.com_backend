@@ -49,6 +49,5 @@ module.exports={
     getPurchases,
     crearPurchases,
     addArticles,
-    deleteArticle,
     deletePurchases
 }
