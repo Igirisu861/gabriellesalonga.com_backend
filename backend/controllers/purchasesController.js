@@ -8,7 +8,7 @@ const getPurchases = asyncHandler(async(req,res)=>{
 
 const crearPurchases = asyncHandler(async(req,res) =>{
     const{client,article} = req.body;
-    if(!client || !article){
+    if(!article){
         res.status(400);
         throw new Error('Please insert all the data');
     }
@@ -49,5 +49,6 @@ module.exports={
     getPurchases,
     crearPurchases,
     addArticles,
+    deleteArticle,
     deletePurchases
 }

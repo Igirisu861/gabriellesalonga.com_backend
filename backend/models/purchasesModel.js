@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const purchaseModel = mongoose.Schema({
     client:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Client'
     },
     articles:[{
