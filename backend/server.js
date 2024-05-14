@@ -4,9 +4,8 @@ const connectDB = require('./config/db');
 const express = require('express');
 const app = express();
 const {errorHandler} = require('./middleware/errorMiddleware');
-const customCors = require('../backend/middleware/cors');
 
-app.use(customCors);
+app.use(cors());
 
 connectDB();//conecta a la DB
 
